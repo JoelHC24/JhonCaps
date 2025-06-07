@@ -69,22 +69,12 @@ productCards.forEach(card => {
 });
 
 // Evento para capturar la talla seleccionada
-
-
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Si ya está activo, lo deseleccionamos
-        if (button.classList.contains('active')) {
-            button.classList.remove('active');
-            selectedSize = null;
-            console.log('Talla deseleccionada');
-        } else {
-            // Deseleccionar todos y seleccionar este
-            sizeButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            selectedSize = button.dataset.size;
-            console.log(`Talla seleccionada: ${selectedSize}`);
-        }
+        sizeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        selectedSize = button.dataset.size;
+        console.log(`Talla seleccionada: ${selectedSize}`);
     });
 });
 
@@ -241,7 +231,7 @@ checkoutBtn.addEventListener('click', () => {
 
     const message = encodeURIComponent(`¡Hola! Me gustaría hacer un pedido de los siguientes productos:\n\n${cart.map(item => `${item.name} ${item.size ? `(Talla: ${item.size})` : ''} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`).join('\n')}\n\nTotal: $${cartTotal.textContent}`);
     
-    window.open(`https://wa.me/+5299712262372?text=${message}`, '_blank');
+    window.open(`https://wa.me/+529971153510?text=${message}`, '_blank');
 });
 
 // Inicializar icono del carrito
